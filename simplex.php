@@ -38,6 +38,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <link rel="shortcut icon" type="image/x-icon" href="img/cake.png" />
+
 </head>
 
 <body id="page-top" class="index">
@@ -78,6 +80,17 @@
     <section id="simplex_method">
         <div class="container">
             <div class="row">
+                <div class="row">
+                <?php
+                  echo "<br/><br/><br/>";
+                  if ($optimize == 0)
+                      echo "Maximize ";
+                  else echo "Minimize ";
+                  echo "{$obj_function} </br> subject to: ";
+                  echo "{$constraints}<br>";
+                  echo "<br/><br/>";
+                ?>
+                </div>
                 <table class="table table-striped table-hover ">
                 	<!-- Initial Tableau -->
                     <div class="row">

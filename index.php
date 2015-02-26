@@ -36,6 +36,17 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <link rel="shortcut icon" type="image/x-icon" href="img/cake.png" />
+
+<script>
+    function toggle() {
+        checkboxes = document.getElementsByName('food[]');
+        for(var i=0, n=checkboxes.length;i<n;i++) {
+            checkboxes[i].checked = true;
+        }
+    }
+</script>
+
 </head>
 
 <body id="page-top" class="index">
@@ -76,9 +87,14 @@
     <header>
         <div class="container">
             <div class="row">
+                <div class="col-sm-2"></div>
+                <img class="img-responsive col-sm-2" src="img/ultimate.png" alt="">
+                <img class="img-responsive col-sm-2" src="img/diet.png" alt="">
+                <img class="img-responsive col-sm-2" src="img/problem.png" alt="">
+                <img class="img-responsive col-sm-2" src="img/optimizer.png" alt="">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="img/cake.png" alt="">
                     <div class="intro-text">
+                        <br><br><br>
                         <span class="name">CMSC 150 Project</span>
                         <hr class="star-light">
                         <span class="skills">Ultimate Optimizer - Diet Problem Solver</span>
@@ -125,7 +141,7 @@
                                 </div>
                                 <div class="radio col-xs-12 floating-label-group controls">
                                     <label>
-                                        <input type="radio" name="optimize" id="minimize" value="0">
+                                        <input type="radio" name="optimize" id="minimize" value="1">
                                         <label><p>Minimize</p></label>
                                     </label>
                                 </div>
@@ -157,582 +173,600 @@
                 </div>
             </div>
             <div class="row">
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_1" value="1">
-             Frozen Brocolli
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_2" value="2">
-            Carrots, Raw
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_3" value="3">
-            Celery, Raw
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_4" value="4">
-            Frozen, Corn
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_5" value="5">
-            Lettuce, Iceberg, Raw
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_6" value="6">
-            Peppers, Sweet, Raw
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_7" value="7">
-            Potatoes, Baked
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_8" value="8">
-            Potatoes, Tofu
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_9" value="9">
-            Roasted Chicken
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_10" value="10">
-            Spaghetti with Sauce
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_11" value="11">
-            Tomato, Red, Ripe, Raw
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_12" value="12">
-            Apple, Raw, with Skin
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_13" value="13">
-            Banana
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_14" value="14">
-            Grapes
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_15" value="15">
-            Kiwifruit, Raw, Fresh
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_16" value="16">
-            Oranges
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_17" value="17">
-            Bagels
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_18" value="18">
-            Wheat Bread
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_19" value="19">
-            White Bread
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_20" value="20">
-            Oatmeal Cookies
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_21" value="21">
-            Apple Pie
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_22" value="22">
-            Chocolate Chip Cookies
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_23" value="23">
-            Butter, Regular
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_24" value="24">
-            Cheddar Cheese
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_25" value="25">
-            3.3% Fat, Whole Milk
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_26" value="26">
-            2% Lowfat Milk
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_27" value="27">
-            Skim Milk
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_28" value="28">
-            Poached Eggs
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_29" value="29">
-            Scrambled Eggs
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_30" value="30">
-            Bologna, Turkey
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_31" value="31">
-            Frankfurter, Beef
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_32" value="32">
-            Ham, Sliced, Extralean
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_33" value="33">
-            Kielbasa, Prk
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_34" value="34">
-            Cap 'N Crunch
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_35" value="35">
-            Cheerios
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_36" value="36">
-            Corn Flks, Kellg'S
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_37" value="37">
-            Raisin Brn, Kellg'S
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_38" value="38">
-            Rice Krispies
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_39" value="39">
-            Special K
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_40" value="40">
-            Oatmeal
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_41" value="41">
-            Malt-O-Meal, Choc
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_42" value="42">
-            Pizza with Pepperoni
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_43" value="43">
-            Taco
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_44" value="44">
-            Hamburger with Toppings
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_45" value="45">
-            Hotdog, Plain
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_46" value="46">
-            Couscous
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_47" value="47">
-            White Rice
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_48" value="48">
-            Macaroni, Ckd
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_49" value="49">
-            Peanut Butter
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_50" value="50">
-            Pork
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_51" value="51">
-            Sardines in Oil
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_52" value="52">
-            White Tuna in Water
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_53" value="53">
-            Popcorn, Air-popped
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_54" value="54">
-            Potato Chips, Bbq Flavor
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_55" value="55">
-            Pretzels
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_56" value="56">
-            Tortilla Chip
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_57" value="57">
-            Chicken Noodle Soup
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_58" value="58">
-            Splt Pea and Hamsoup
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_59" value="59">
-            Vegebeef Soup
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_60" value="60">
-            Neweng Clamchwd
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_61" value="61">
-            Tomato Soup
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_62" value="62">
-            New E Clamchwd, with Milk
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_63" value="63">
-            Corn Mushroom Soup with Milk
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
-<div class="col-sm-3 food-item">
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="food" id="food_64" value="64">
-            Beanbacon Soup with Water
-            <img src="img/cake.png" class="img-responsive" alt="">
-        </label>
-    </div>
-</div>
+<form name="diet_solver_form" id="diet_solver_form" validate method="post" action = "diet_solver.php">
+<div class ="col-sm-10" >
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_1" value="1">
+                 Frozen Broccoli
+                <img src="img/food_items/01_frozen_broccoli.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_2" value="2">
+                Carrots, Raw
+                <img src="img/food_items/02_carrots.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_3" value="3">
+                Celery, Raw
+                <img src="img/food_items/03_celery.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_4" value="4">
+                Frozen, Corn
+                <img src="img/food_items/04_corn.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_5" value="5">
+                Lettuce, Iceberg, Raw
+                <img src="img/food_items/05_lettuce.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_6" value="6">
+                Peppers, Sweet, Raw
+                <img src="img/food_items/06_pepper.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_7" value="7">
+                Potatoes, Baked
+                <img src="img/food_items/07_baked_potato.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_8" value="8">
+                Tofu
+                <img src="img/food_items/08_tofu.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_9" value="9">
+                Roasted Chicken
+                <img src="img/food_items/09_roasted_chicken.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_10" value="10">
+                Spaghetti with Sauce
+                <img src="img/food_items/10_spaghetti.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_11" value="11">
+                Tomato, Red, Ripe, Raw
+                <img src="img/food_items/11_tomato.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_12" value="12">
+                Apple, Raw, with Skin
+                <img src="img/food_items/12_apple.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_13" value="13">
+                Banana
+                <img src="img/food_items/13_banana.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_14" value="14">
+                Grapes
+                <img src="img/food_items/14_grapes.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_15" value="15">
+                Kiwifruit, Raw, Fresh
+                <img src="img/food_items/15_kiwi.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_16" value="16">
+                Oranges
+                <img src="img/food_items/16_oranges.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_17" value="17">
+                Bagels
+                <img src="img/food_items/17_bagels.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_18" value="18">
+                Wheat Bread
+                <img src="img/food_items/18_wheat_bread.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_19" value="19">
+                White Bread
+                <img src="img/food_items/19_white_bread.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_20" value="20">
+                Oatmeal Cookies
+                <img src="img/food_items/20_oatmeal_cookies.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_21" value="21">
+                Apple Pie
+                <img src="img/food_items/21_apple_pie.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_22" value="22">
+                Chocolate Chip Cookies
+                <img src="img/food_items/22_cchip_cookies.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_23" value="23">
+                Butter, Regular
+                <img src="img/food_items/23_butter.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_24" value="24">
+                Cheddar Cheese
+                <img src="img/food_items/24_cheddar_cheese.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_25" value="25">
+                3.3% Fat, Whole Milk
+                <img src="img/food_items/25_wholefat_milk.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_26" value="26">
+                2% Lowfat Milk
+                <img src="img/food_items/26_lowfat_milk.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_27" value="27">
+                Skim Milk
+                <img src="img/food_items/27_skim_milk.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_28" value="28">
+                Poached Eggs
+                <img src="img/food_items/28_poached_eggs.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_29" value="29">
+                Scrambled Eggs
+                <img src="img/food_items/29_scrambled_eggs.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_30" value="30">
+                Bologna, Turkey
+                <img src="img/food_items/30_b_turkey.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_31" value="31">
+                Frankfurter, Beef
+                <img src="img/food_items/31_f_beef.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_32" value="32">
+                Ham, Sliced, Extra lean
+                <img src="img/food_items/32_ham.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_33" value="33">
+                Kielbasa, Pork
+                <img src="img/food_items/33_k_pork.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_34" value="34">
+                Cap'n Crunch
+                <img src="img/food_items/34_capn_crunch.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_35" value="35">
+                Cheerios
+                <img src="img/food_items/35_cheerios.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_36" value="36">
+                Corn Flakes, Kellog's
+                <img src="img/food_items/36_corn_flakes.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_37" value="37">
+                Raisin Bran, Kellog's
+                <img src="img/food_items/37_raisin_bran.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_38" value="38">
+                Rice Krispies, Kellog's
+                <img src="img/food_items/38_rice_krispies.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_39" value="39">
+                Special K, Kellog's
+                <img src="img/food_items/39_special_k.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_40" value="40">
+                Oatmeal
+                <img src="img/food_items/40_oatmeal.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_41" value="41">
+                Malt-O-Meal, Chocolate
+                <img src="img/food_items/41_malt_meal.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_42" value="42">
+                Pizza with Pepperoni
+                <img src="img/food_items/42_pizza.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_43" value="43">
+                Taco
+                <img src="img/food_items/43_taco.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_44" value="44">
+                Hamburger with Toppings
+                <img src="img/food_items/44_hamburger.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_45" value="45">
+                Hotdog, Plain
+                <img src="img/food_items/45_hotdog.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_46" value="46">
+                Couscous
+                <img src="img/food_items/46_couscous.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_47" value="47">
+                White Rice
+                <img src="img/food_items/47_white_rice.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_48" value="48">
+                Macaroni, Ckd
+                <img src="img/food_items/48_macaroni.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_49" value="49">
+                Peanut Butter
+                <img src="img/food_items/49_peanut_butter.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_50" value="50">
+                Pork
+                <img src="img/food_items/50_pork.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_51" value="51">
+                Sardines in Oil
+                <img src="img/food_items/51_sardines.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_52" value="52">
+                White Tuna in Water
+                <img src="img/food_items/52_tuna.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_53" value="53">
+                Popcorn, Air-popped
+                <img src="img/food_items/53_popcorn.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_54" value="54">
+                Potato Chips, Bbq Flavor
+                <img src="img/food_items/54_potato_chips.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_55" value="55">
+                Pretzels
+                <img src="img/food_items/55_pretzels.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_56" value="56">
+                Tortilla Chip
+                <img src="img/food_items/56_tortilla_chip.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_57" value="57">
+                Chicken Noodle Soup
+                <img src="img/food_items/57_chicken_ns.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_58" value="58">
+                Split Pea and Hamsoup
+                <img src="img/food_items/58_sp_soup.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_59" value="59">
+                Vegebeef Soup
+                <img src="img/food_items/59_vegebeef_soup.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_60" value="60">
+                New England Clam Chowder
+                <img src="img/food_items/60_clam_chowder.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_61" value="61">
+                Tomato Soup
+                <img src="img/food_items/61_tomato_soup.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_62" value="62">
+                New Eng. Clam Chowder, with Milk
+                <img src="img/food_items/62_clam_chowder_milk.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_63" value="63">
+                Corn Mushroom Soup with Milk
+                <img src="img/food_items/63_corn_mushroom.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-3 food-item">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" name="food[]" id="food_64" value="64">
+                Beanbacon Soup with Water
+                <img src="img/food_items/64_bean_bacon_soup.png" class="img-responsive" alt="">
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-2 btn-group-vertical btn-lg sticky">
+    <a class="btn btn-primary" onClick="toggle()">
+         Toggle all
+    </a>
+    <br/>
+    <button type="reset" class="btn btn-danger">
+         Clear all
+    </button>
+    <br/>
+    <button type="submit" class="btn btn-primary">
+        Gimme mah diet!
+    </button>
+</div>
+</form>
             </div>
         </div>
     </section>

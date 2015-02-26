@@ -6,59 +6,6 @@
 
 <?php
     /*
-    * Creates systems of linear equations from constraints
-    * @params: equation to be "standardized"
-    * returns the "standardized" eqaution
-    */
-    function parse_equation($equation){
-        //remove all spaces
-        $slack = 1;
-        $equation = preg_replace('/\s+/', '', $equation);
-
-        $eq_arr = str_getcsv($equation);
-        
-        //introduce slack variables to equations
-        foreach ($eq_arr as $key => $value) {
-            $value = preg_replace('/</', "+S{$slack}", $value);
-            $value = preg_replace('/>/', "-S{$slack}", $value);
-            $slack++;
-            
-            //explode equation to LHS and RHS
-            //and arrange equation to "ax + by = c" format
-            $exploded = explode('=',$value);
-
-            if (preg_match("/[\+\-]/", $exploded[0])){
-                $eq_arr[$key] = $value;
-            }
-            else{
-            //     $rgx = "/([0-9]*[\.]?[0-9]*)([a-zA-Z]*[0-9]*)/";
-            //     if (preg_match($rgx, $exploded[1])){
-            //         $first = "+";
-            //         $first .= $exploded[1];
-            //         $exploded[1] = $first;
-            //     }
-
-            //     $exploded[1] = preg_replace('/\+/', "**", $exploded[1]);
-            //     $exploded[1] = preg_replace('/\-/', "##", $exploded[1]);
-            //     $exploded[1] = preg_replace('/\*\*/', "-", $exploded[1]);
-            //     $exploded[1] = preg_replace('/\#\#/', "+", $exploded[1]);
-
-
-            //     $LHS .= $exploded[1];
-            //     $RHS = 0;
-
-                $temp = $exploded[0];
-                $LHS = $exploded[1];  
-                $RHS = $temp;           
-                $arr = array($LHS, $RHS);
-                $eq_arr[$key] = implode("=", $arr);
-            }
-        }
-
-        return $eq_arr;
-    }
-
-    /*
     * gets the variables from equation
     * @params: the equation where variables will be taken
     * @params: array where variables wil be placed
@@ -151,27 +98,21 @@
         return $row_vector;
     }
 
-    /*
-    * returns an aasoc array of basic solution of an eqaution
-    * @params: the eqaution and the array of variables usd
-    */
-    function get_basic_solution($eq_arr, $variable_array){
-        $ctr = 0;
-        $basic = [];
-        while($ctr != sizeof($variable_array)-1){
-            $sum = 0;
-            foreach ($eq_arr as $i => $v) {
-                $sum += abs($eq_arr[$i][$ctr]);
-                if(abs($eq_arr[$i][$ctr])==1){
-                    $basic[$ctr] = ($eq_arr[$i][$ctr])*$eq_arr[$i][sizeof($variable_array)-1];
-                }
-            }
-            if ($sum > 1) {
-               $basic[$ctr] = 0;
-            }
-            $ctr++;
-        }
 
+    /*
+    * returns an assoc array of basic solution of an eqaution
+    * @params: the last column of the tableau
+    */
+    function get_basic_solution($answers, $row, $col){
+        $ctr = sizeof($answers) - $row -1;
+        $basic = [];
+        $count = 0;
+
+        while ($ctr < $col) {
+            $basic[$count] = $answers[$ctr];
+            $ctr++;
+            $count++;
+        }
         return $basic;
     }
 
@@ -233,6 +174,7 @@
        
         $denumer = $eq_arr[$pivot_row][$pivot_col];
 
+       // echo "<br>PIVOT COL: ".$pivot_col."PIVOT ROW: ".$pivot_row."VALUE: ".$denumer."<br>";
         if ($denumer <= 0) {
             return 0;
         }
@@ -259,59 +201,176 @@
         
     }
 
+	//array that will hold the user's selected foods
+	$selected = [];
+	if(!empty($_POST['food'])) {
+		foreach($_POST['food'] as $check) {
+			array_push($selected, $check);
+		}
+	}
+
+	$string = file_get_contents("food_list.json");
+	//array that holds the nutritional contents per food
+	$food_list=json_decode($string,true);
+
+	//array containing the nutritional constraints
+	//min, max, name, var name in json
+	$constraints = [
+		0 => [2000, 2250, "Calories", "calories"],
+		1 => [0, 300, "Cholesterol", "cholesterol"],
+		2 => [0, 65, "Total Fat", "t_fat"],
+		3 => [0, 2400, "Sodium", "sodium"],
+		4 => [0, 300, "Carbohydrates", "carbs"],
+		5 => [25, 100, "Dietary Fiber", "d_fiber"],
+		6 => [50, 100, "Protein", "protein"],
+		7 => [5000, 50000, "Vit A", "vit_A"],
+		8 => [50, 20000, "Vit C", "vit_C"],
+		9 => [800, 1600, "Calcium", "calcium"],
+		10 => [10, 30, "Iron", "iron"]
+	];
+
+	//creates the objective function
+	$obj_function = "";
+	foreach ($selected as $k => $v) {
+		$obj_function .= $food_list[$v-1]["ppserving"]."f".$k. "+";
+	}
+
+	$obj_function = "z=".substr($obj_function, 0, strlen($obj_function)-1);
+
+	//echo $obj_function;
+
+	//constraints_array
+	$arr_constraints = [];
+
+	//constraints for number of servings
+	foreach ($selected as $k => $v) {
+		array_push($arr_constraints, "f".$k.">=0");
+		array_push($arr_constraints, "f".$k."<=10");
+	}
+	
+
+	$min = "";
+	$max = "";
+	$eq = "";
+
+	//nutritional constraints
+	foreach ($constraints as $key => $value) {
+		$nutrient = $constraints[$key][3];
+		foreach ($selected as $k => $v) {
+			$eq .= $food_list[$v-1][$nutrient]."f".$k."+";
+		}
+		$min = substr($eq, 0, strlen($eq)-1).">=".$constraints[$key][0];
+		$max = substr($eq, 0, strlen($eq)-1)."<=".$constraints[$key][1];
+
+		array_push($arr_constraints, $min);
+		array_push($arr_constraints, $max);
+		$eq="";
+	}
+    //var_dump($arr_constraints);
+	//gets variables
+	$variable_arr =[];
+
+	//dumt array for obj function
+	$arr = [];
+	array_push($arr, $obj_function);
+
+	$variable_arr = get_variables($arr_constraints, $variable_arr);
+	$variable_arr = get_variables($arr, $variable_arr);
 
 
-    if($_SERVER["REQUEST_METHOD"]=="POST"){
-        //get form POST
-        $obj_function = $_POST["obj_function"];
-
-        $constraints = $_POST["constraints"];
-        $optimize = $_POST["optimize"];
-        
-        //standardize functions
-        $parsed_objFunc = parse_equation($obj_function);
-        $parsed_const = parse_equation($constraints);
-
-        //array for holding variables to be used for simplex
-        $variable_array = [];
-    
-        //get variables from functions
-        $variable_array = get_variables($parsed_const, $variable_array);
-        $variable_array = get_variables($parsed_objFunc, $variable_array);
-        array_push($variable_array, "answer");
-
-        //matrix for  tableau
-        $eq_arr = [];
-         foreach ($parsed_const as $a => $b) {
-            $eq_arr[$a] = get_coeff($parsed_const[$a], $variable_array);
-        }
-        $eq_arr[sizeof($parsed_const)]=get_coeff($parsed_objFunc[0], $variable_array);
-
-        //negate objective function in the tableau
-        if ($optimize == 0)
-            foreach ($eq_arr[sizeof($parsed_const)] as $last => $val) {
-                if ($last != sizeof($variable_array)-2) {
-                    $eq_arr[sizeof($parsed_const)][$last] = $val*-1;
-                }
+    //matrix for  tableau
+    $matrix = [];
+    foreach ($arr_constraints as $a => $b) {
+        $matrix[$a] = get_coeff($arr_constraints[$a], $variable_arr);
+        if ($a%2==1) {
+            foreach ($matrix[$a] as $k => $v) {
+                $matrix[$a][$k] = -1*$v;
             }
+        }
+    }
+    $matrix[sizeof($arr_constraints)]=get_coeff($arr[0], $variable_arr);
 
-        //get initial tableau and basic solution
-        $init_tableau = $eq_arr;
-        $bs = get_basic_solution($eq_arr, $variable_array);
+    //create the transpose matrix
+    $transpose_matrix = [];
+    $row_ctr = $col_ctr = 0;
+    $row_len = sizeof($matrix);
+    $col_len = sizeof($variable_arr);
 
-        $tableau = [];
-        $basic_sol = [];
-        $count = 0;
+    while ($col_ctr < $col_len) {
+        $row_v = [];
+        $row_ctr = 0;
+        while ($row_ctr < $row_len) {
+            array_push($row_v, $matrix[$row_ctr][$col_ctr]);
+            $row_ctr++;
+        }
+        $transpose_matrix[$col_ctr] = $row_v;
+        $col_ctr++;
+    }
+
+    //Introduce slack variables to the transpose 
+    $count = 0;
+    while($count < $col_len){
+        foreach ($transpose_matrix as $a => $b) {
+            $l = sizeof($transpose_matrix[$a]);
+            $rhs_value = $transpose_matrix[$a][$l-1];
+            if ($a == $count)
+                $transpose_matrix[$a][$l-1] = 1;
+            else $transpose_matrix[$a][$l-1] = 0;
+            $transpose_matrix[$a][$l] = $rhs_value;
+        }
+        $count++;
+    }
+
+    //force the RHS of the objective function to be 0
+    $rows = sizeof($transpose_matrix);
+    $cols = sizeof($transpose_matrix[0]);
+    $transpose_matrix[$rows-1][$cols-1] = 0;
+
+    foreach ($transpose_matrix[$rows-1] as $last => $val) {
+        if ($last != $cols-2) {
+            $transpose_matrix[$rows-1][$last] = $val*-1;
+        }
+    }
+    //get initial tableau and basic solution
+    $init_tableau = $transpose_matrix;
+    
+    $tableau = [];
+    $basic_sol = [];
+    $count = 0;
+    $feasible = 1;
 
 
-        //get tableau and basic sol for other rows
-       while(is_negative($eq_arr[sizeof($eq_arr)-1])){
-            $eq_arr = pivot($eq_arr);
-            $tableau[$count] =  $eq_arr;
-            $basic_sol[$count] = get_basic_solution($eq_arr, $variable_array);
-            $count++;
-       }
+    //echo sizeof($transpose_matrix)-1;
+    //get tableau and basic sol for other rows
+    while(is_negative($transpose_matrix[sizeof($transpose_matrix)-1])){
+    //while($count < 10){
+        $p =  pivot($transpose_matrix);
+        if ($p == 0) {
+            $feasible = 0;
+            break;
+        }
+        else $transpose_matrix = $p;
+        $tableau[$count] =  $transpose_matrix;
+        //$basic_sol[$count] = get_basic_solution($transpose_matrix, $variable_array);
+        $count++;
+    }
 
-    }//end of $_SERVER["REQUEST_METHOD"]=="POST"
+    $values= [];
+    $costs = [];
+
+    if ($feasible == 1) {
+        $basic_sol = get_basic_solution($transpose_matrix[$rows-1], $rows, $cols);
+        $ctr = sizeof($basic_sol);
+        echo $ctr;
+        foreach ($basic_sol as $key => $value) {
+            if ($key < $ctr-2){
+                $values[$food_list[$key]['name']] = $value;
+                $costs[$key] = $food_list[$key]['ppserving']*$value;
+            }
+            else if ($key == $ctr-1){
+                $values["answer"] = $value;
+                $costs[$key-1] = 0;
+            }
+        }
+    }
 ?>
-

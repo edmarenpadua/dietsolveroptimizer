@@ -67,6 +67,9 @@
     <!-- Solve Simplex JavaScript -->
     <script src="js/solve_simplex.js"></script>
 
+    <!-- Food List Array JavaScript -->
+    <script src="js/food_list.js"></script>
+
 </body>
 
 </html>

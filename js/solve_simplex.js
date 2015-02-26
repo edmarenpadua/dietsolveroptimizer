@@ -25,7 +25,6 @@ function checkConstraints(){
 
 function solve(){
 	if(checkObjFunc()&&checkConstraints()){
-		document.getElementsByName('err')[0].innerHTML="darlaa"
 		return true;
 	}
 	else{
@@ -33,6 +32,3 @@ function solve(){
 		return false;
 	}
 }
-/*a = "x+y-3";
-console.log(a);
-*/
